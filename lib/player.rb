@@ -12,6 +12,7 @@ class Player
    "#{@name} a #{@life_points} points de vie"
  end
 
+
  def gets_damage(damages)
  @life_points = @life_points - damages
 
@@ -24,11 +25,10 @@ class Player
   p "le joueur #{@name} attaque le joueur #{player.name}"
   damages_done = compute_damage
   player.gets_damage(damages_done)
-  p "le jour #{@name} nique le #{player.name} en lui faisant perdre #{damages_done} point de vie"
+  p "le joueur #{@name} nique le #{player.name} en lui faisant perdre #{damages_done} point de vie"
  end
 
  def compute_damage
    return rand(1..6)
  end
-
 end
