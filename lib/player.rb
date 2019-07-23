@@ -25,7 +25,9 @@ class Player
   p "le joueur #{@name} attaque le joueur #{player.name}"
   damages_done = compute_damage
   player.gets_damage(damages_done)
+  if player.life_points > 0
   p "le joueur #{@name} nique le #{player.name} en lui faisant perdre #{damages_done} point de vie"
+  end
  end
 
  def compute_damage

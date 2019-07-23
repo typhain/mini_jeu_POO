@@ -11,8 +11,9 @@ player2 = Player.new("José")
 p "Voici l'état de chaque joueur :"
 p player1.show_state
 p player2.show_state
-while player2.life_points >=0 || player1.life_points >=0
+while player1.life_points >0 || player2.life_points >0
 puts "Passons à la phase d'attaque :"
-p player2.attacks(player1)
-p player1.attacks(player2)
-end 
+player1.attacks(player2)
+break if player2.life_points <= 0
+player2.attacks(player1)
+end
