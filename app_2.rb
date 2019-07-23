@@ -22,7 +22,7 @@ p player3.show_state
 
   while player3.life_points > 0 && (player1.life_points > 0 || player2.life_points > 0)
 
-    print "Quelle action veux-tu effectuer ?
+    print "Tu as plusieurs options :
 
     a - chercher une meilleure arme
     s - chercher à se soigner\n\n"
@@ -31,16 +31,18 @@ p player3.show_state
     p "0 - #{player1.show_state}"
     p "1 - #{player2.show_state}"
 
-    action = gets.chomp
-    
+    prompt = TTY::Prompt.new
+    prompt.select("Quelle action veux-tu effectuer ?", %w(a s 0 1))
+
+
     puts "Passons enfin à l'action :"
-    if action = a
+      if prompt= a
       player3.search_weapon
-    elsif action = s
+      elsif prompt = s
       player3.search_health_pack
-    elsif action = 0
+      elsif prompt = 0
       player3.attacks(player1)
-    elsif action = 1
+      elsif prompt = 1
       player3.attacks(player2)
     end
   end
